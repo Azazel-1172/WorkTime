@@ -15,7 +15,6 @@ const monthlyHour = (Arr, Int) => {
 		CurrentDailyHours[Int] = result;
 		result = conversion(result);
 	}
-	console.log(CurrentDailyHours);
 	return `${result.hours}小時${result.minutes}分鐘${result.seconds}秒`;
 };
 

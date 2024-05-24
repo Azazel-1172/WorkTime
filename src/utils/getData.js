@@ -5,18 +5,22 @@ import { reactive } from "vue";
 const workTime = reactive([]);
 
 const getData = async (id) => {
+	let QueryData = new FormData();
+	let month = 5;
+	let year  = 2024;
+	QueryData.append("year", year);
+	QueryData.append("month", month);
+
+	workTime.length = 0;
 	await axiosApi
 		.default({
-			method: "GET",
+			method: "QUERY",
 			url: `/打卡紀錄/${id}`,
+			data: QueryData
 		})
 		.then((res) => {
 			res.data.data.map((item) => {
-				if (dayjs(item.打卡時間).isSame(dayjs(), "month")) {
-					workTime.push(item);
-				} else {
-					return;
-				}
+				workTime.push(item);
 			});
 		});
 };
