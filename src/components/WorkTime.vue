@@ -5,7 +5,7 @@
       <v-select
         variant="outlined"
         clearable
-        label="Select"
+        label="ID"
         :items="['11', '12', '13']"
         v-model="userId"
       ></v-select>
